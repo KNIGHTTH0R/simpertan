@@ -153,7 +153,7 @@
                   </div>
                 </div>
               </a>
-              
+
               <a class="dropdown-item">
                 Sign Out
               </a>
