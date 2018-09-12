@@ -31,11 +31,5 @@
               <span class="menu-title">Cetak Form Peminjaman</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('laporan') }}">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Laporan Penanaman</span>
-            </a>
-          </li>
         </ul>
       </nav>

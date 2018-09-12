@@ -22,13 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // start Route POKTAN
-Route::get('/pengajuan_kegiatan', 'PoktanController@pengajuan')->name('pengajuan_kegiatan');
-Route::get('/pengajuan_peminjaman', 'PoktanController@peminjaman')->name('pengajuan_peminjaman');
-Route::get('/cetak_pengajuan', 'PoktanController@cetakPengajuan')->name('cetak_pengajuan');
-Route::get('/cetak_peminjaman', 'PoktanController@cetakPeminjaman')->name('cetak_peminjaman');
-Route::get('/laporan', 'PoktanController@laporan')->name('laporan');
+Route::group(['prefix' => 'poktan'], function() {
+	Route::get('/pengajuan_kegiatan', 'Poktan\PengajuanController@pengajuan')->name('pengajuan_kegiatan');
+	Route::get('/pengajuan_peminjaman', 'Poktan\PeminjamanController@peminjaman')->name('pengajuan_peminjaman');
+	Route::get('/cetak_pengajuan', 'Poktan\PengajuanController@cetakPengajuan')->name('cetak_pengajuan');
+	Route::get('/cetak_peminjaman', 'Poktan\PeminjamanController@cetakPeminjaman')->name('cetak_peminjaman');
+});
 // end Route POKTAN
-
 
 // start Route Admin
 Route::group(['prefix' => 'admin'], function(){

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Poktan;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class PoktanController extends Controller
+class PeminjamanController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,29 +25,13 @@ class PoktanController extends Controller
     
 
 
-    public function pengajuan()
-    {
-        // return view('layouts.poktan.master_poktan');
-        return view('poktan.pengajuan_kegiatan');
-    }
-
     public function peminjaman()
     {
         return view('poktan.pengajuan_peminjaman');
     }
 
-    public function cetakPengajuan()
-    {
-        return view('poktan.cetak_pengajuan');
-    }
-
     public function cetakPeminjaman()
     {
         return view('poktan.cetak_peminjaman');
-    }
-
-    public function laporan()
-    {
-        return view('poktan.laporan');
     }
 }
