@@ -9,7 +9,7 @@
       @include('layouts.navbar')
 
       <div class="container-fluid page-body-wrapper">
-        @include('layouts.sidebar')
+        @include('layouts.poktan.sidebar')
         <div class="main-panel">
           @yield('content')
           <!-- content-wrapper ends -->

@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+// start Route POKTAN
+Route::get('/pengajuan_kegiatan', 'PoktanController@index')->name('pengajuan_kegiatan');
+// end Route POKTAN
