@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pdf.pengajuan');
 });
 
 Auth::routes();
@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin'], function(){
   Route::resource('pengajuan', 'Admin\PengajuanController');
   Route::resource('peminjaman', 'Admin\PeminjamanController');
   Route::resource('laporantanam', 'Admin\LaporantanamController');
+
   Route::resource('cetak', 'Admin\CetakController');
   Route::resource('user', 'Admin\UserController');
 

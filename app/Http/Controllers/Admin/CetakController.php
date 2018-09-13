@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use PDF;
+
 class CetakController extends Controller
 {
     /**
@@ -37,6 +39,9 @@ class CetakController extends Controller
     public function store(Request $request)
     {
         //
+        $pdf = PDF::loadView('pdf.pengajuan');
+        return $pdf->stream();
+
     }
 
     /**
@@ -48,6 +53,7 @@ class CetakController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
