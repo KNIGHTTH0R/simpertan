@@ -150,6 +150,8 @@ return [
         /*
          * Package Service Providers...
          */
+         // Codedge\Fpdf\FpdfServiceProvider::class,
+         Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -209,6 +211,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
