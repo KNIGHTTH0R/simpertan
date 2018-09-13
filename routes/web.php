@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // start Route POKTAN
 Route::group(['prefix' => 'poktan'], function() {
+  Route::get('/dashboard', 'Poktan\DashboardController@dashboard')->name('dashboard');
 	Route::get('/pengajuan_kegiatan', 'Poktan\PengajuanController@pengajuan')->name('pengajuan_kegiatan');
 	Route::get('/pengajuan_peminjaman', 'Poktan\PeminjamanController@peminjaman')->name('pengajuan_peminjaman');
 	Route::get('/cetak_pengajuan', 'Poktan\PengajuanController@cetakPengajuan')->name('cetak_pengajuan');
@@ -47,3 +48,18 @@ Route::group(['prefix' => 'admin'], function(){
   //end setting menu
 });
 // end Route Admin
+
+// start Route Bidang
+Route::group(['prefix' => 'bidang'], function() {
+	Route::resource('pengajuan', 'Bidang\PengajuanController');
+	Route::get('cetak', 'Bidang\PengajuanController@show')->name('cetak');
+
+	Route::resource('peminjaman', 'Bidang\PeminjamanController');
+});
+// end Route Bidang
+
+// start Route Kadis
+Route::group(['prefix' => 'kadis'], function() {
+  Route::get('dashboard', 'Kadis\DashboardController@dashboard')->name('dashboard');
+});
+// end Route Bidang

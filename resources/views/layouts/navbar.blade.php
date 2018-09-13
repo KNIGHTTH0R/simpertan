@@ -9,7 +9,7 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown d-none d-xl-inline-block">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text">Hello, Richard V.Welsh !</span>
               <img class="img-xs rounded-circle" src="{{ asset('/images/faces-clipart/pic-1.png') }}" alt="Profile image">
