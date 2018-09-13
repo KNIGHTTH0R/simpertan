@@ -13881,8 +13881,8 @@ input:focus {
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
     background: #ffffff;
-    width: 255px;
-    height: 63px; }
+    height: 63px;
+    width: 255px; }
     .sidebar-dark .navbar.default-layout .navbar-brand-wrapper {
       background: #161a27; }
     .navbar.default-layout .navbar-brand-wrapper .navbar-brand {
@@ -13906,8 +13906,8 @@ input:focus {
       .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini img {
         width: calc(70px - 50px);
         max-width: 100%;
-        height: 28px;
-        margin: auto; }
+        margin: auto;
+        }
   .navbar.default-layout .navbar-menu-wrapper {
     transition: width 0.25s ease;
     -webkit-transition: width 0.25s ease;
@@ -13920,7 +13920,9 @@ input:focus {
     height: 63px; }
     @media (max-width: 991px) {
       .navbar.default-layout .navbar-menu-wrapper {
-        width: auto; } }
+        width: auto;
+        height: auto;
+        background-color: none;} }
     .navbar.default-layout .navbar-menu-wrapper .navbar-toggler {
       border: 0;
       color: inherit; }
@@ -13992,11 +13994,14 @@ input:focus {
   .navbar.default-layout {
     flex-direction: row; }
     .navbar.default-layout .navbar-brand-wrapper {
-      width: 75px; }
+      width: 75px;
+      background-color: none;
+       height: 0px;}
       .navbar.default-layout .navbar-brand-wrapper .brand-logo {
         display: none; }
       .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini {
-        display: inline-block; }
+        display: none;
+       }
   .navbar-collapse {
     display: flex;
     margin-top: 0.5rem; } }
