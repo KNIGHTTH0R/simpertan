@@ -23,44 +23,44 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // start Route POKTAN
 Route::group(['prefix' => 'poktan'], function() {
-  Route::get('/dashboard', 'Poktan\DashboardController@dashboard')->name('dashboard');
-	Route::get('/pengajuan_kegiatan', 'Poktan\PengajuanController@pengajuan')->name('pengajuan_kegiatan');
-	Route::get('/pengajuan_peminjaman', 'Poktan\PeminjamanController@peminjaman')->name('pengajuan_peminjaman');
-	Route::get('/cetak_pengajuan', 'Poktan\PengajuanController@cetakPengajuan')->name('cetak_pengajuan');
-	Route::get('/cetak_peminjaman', 'Poktan\PeminjamanController@cetakPeminjaman')->name('cetak_peminjaman');
+  Route::resource('poktan_dashboard', 'Poktan\DashboardController');
+  Route::resource('poktan_pengajuan', 'Poktan\PengajuanController');
+  Route::resource('poktan_peminjaman', 'Poktan\PeminjamanController');
+	Route::get('/poktan_cetak_pengajuan', 'Poktan\PengajuanController@cetakPengajuan')->name('poktan_cetak_pengajuan');
+	Route::get('/poktan_cetak_peminjaman', 'Poktan\PeminjamanController@cetakPeminjaman')->name('poktan_cetak_peminjaman');
 });
 // end Route POKTAN
 
 // start Route Admin
 Route::group(['prefix' => 'admin'], function(){
-  Route::resource('dashboard', 'Admin\DashboardController');
-  Route::resource('pengajuan', 'Admin\PengajuanController');
-  Route::resource('peminjaman', 'Admin\PeminjamanController');
-  Route::resource('laporantanam', 'Admin\LaporantanamController');
+  Route::resource('admin_dashboard', 'Admin\DashboardController');
+  Route::resource('admin_pengajuan', 'Admin\PengajuanController');
+  Route::resource('admin_peminjaman', 'Admin\PeminjamanController');
+  Route::resource('admin_laporantanam', 'Admin\LaporantanamController');
 
-  Route::resource('cetak', 'Admin\CetakController');
-  Route::resource('user', 'Admin\UserController');
+  Route::resource('admin_cetak', 'Admin\CetakController');
+  Route::resource('admin_user', 'Admin\UserController');
 
   //start setting menu
-  Route::resource('kegiatan', 'Admin\KegiatanController');
-  Route::resource('satuan', 'Admin\SatuanController');
-  Route::resource('role', 'Admin\RoleController');
-  Route::resource('barangpinjam', 'Admin\BarangpinjamController');
+  Route::resource('admin_kegiatan', 'Admin\KegiatanController');
+  Route::resource('admin_satuan', 'Admin\SatuanController');
+  Route::resource('admin_role', 'Admin\RoleController');
+  Route::resource('admin_barangpinjam', 'Admin\BarangpinjamController');
   //end setting menu
 });
 // end Route Admin
 
 // start Route Bidang
 Route::group(['prefix' => 'bidang'], function() {
-	Route::resource('pengajuan', 'Bidang\PengajuanController');
-	Route::get('cetak', 'Bidang\PengajuanController@show')->name('cetak');
+	Route::resource('bidang_pengajuan', 'Bidang\PengajuanController');
+	Route::get('bidang_cetak', 'Bidang\PengajuanController@show')->name('cetak');
 
-	Route::resource('peminjaman', 'Bidang\PeminjamanController');
+	Route::resource('bidang_peminjaman', 'Bidang\PeminjamanController');
 });
 // end Route Bidang
 
 // start Route Kadis
 Route::group(['prefix' => 'kadis'], function() {
-  Route::get('dashboard', 'Kadis\DashboardController@dashboard')->name('dashboard');
+  Route::resource('kadis_dashboard', 'Kadis\DashboardController');
 });
 // end Route Bidang

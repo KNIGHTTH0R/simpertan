@@ -2,13 +2,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('pengajuan.index') }}">
+            <a class="nav-link" href="{{ route('bidang_pengajuan.index') }}">
               <i class="menu-icon mdi mdi-inbox"></i>
               <span class="menu-title">Pengajuan Kegiatan</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('peminjaman.index') }}">
+            <a class="nav-link" href="{{ route('bidang_peminjaman.index') }}">
               <i class="menu-icon mdi mdi-briefcase"></i>
               <span class="menu-title">Pengajuan Peminjaman</span>
             </a>

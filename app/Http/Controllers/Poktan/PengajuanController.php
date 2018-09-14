@@ -24,7 +24,7 @@ class PengajuanController extends Controller
      */
     
 
-    public function pengajuan()
+    public function index()
     {
         // return view('layouts.poktan.master_poktan');
         return view('poktan.pengajuan_kegiatan');

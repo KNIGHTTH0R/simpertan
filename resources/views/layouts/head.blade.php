@@ -8,6 +8,7 @@
 
 <!-- CSS From Admin Template -->
 <link rel="stylesheet" href="{{ asset('/admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/admin/vendors/font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/admin/vendors/css/vendor.bundle.base.css') }}">
 <link rel="stylesheet" href="{{ asset('/admin/vendors/css/vendor.bundle.addons.css') }}">
 <link rel="stylesheet" href="{{ asset('/admin/css/style.css') }}">

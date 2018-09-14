@@ -12,7 +12,7 @@ class DashboardController extends Controller
     	# code
     }
 
-    public function dashboard()
+    public function index()
     {
     	return view('kadis.dashboard');
     }

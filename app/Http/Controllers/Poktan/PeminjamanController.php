@@ -25,7 +25,7 @@ class PeminjamanController extends Controller
     
 
 
-    public function peminjaman()
+    public function index()
     {
         return view('poktan.pengajuan_peminjaman');
     }

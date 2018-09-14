@@ -3,56 +3,46 @@
 @section('content')
 <div class="content-wrapper">
   <div class="row">
+    <!-- kadis & bidang -->
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Striped Table</h4>
-          <p class="card-description">
-            Add class
-            <code>.table-striped</code>
-          </p>
+          <h4 class="card-title">Daftar User Kadis & Bidang</h4>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>
-                    User
+                    Username
                   </th>
                   <th>
-                    First name
+                    role
                   </th>
                   <th>
-                    Progress
+                    Date Created
                   </th>
                   <th>
-                    Amount
-                  </th>
-                  <th>
-                    Deadline
+                    Aksi
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                    kadisganteng
                   </td>
                   <td>
-                    Herman Beck
+                    kadis
                   </td>
                   <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    19 Agustus 2018
                   </td>
                   <td>
-                    $ 77.99
-                  </td>
-                  <td>
-                    May 15, 2015
+                    <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
                   </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                   <td class="py-1">
                     <img src="../../images/faces-clipart/pic-2.png" alt="image" />
                   </td>
@@ -70,102 +60,78 @@
                   <td>
                     July 1, 2015
                   </td>
+                </tr> --}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- poktan -->
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Daftar User Poktan</h4>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    Username
+                  </th>
+                  <th>
+                    Nama Poktan
+                  </th>
+                  <th>
+                    Ketua Poktan
+                  </th>
+                  <th>
+                    Alamat
+                  </th>
+                  <th>
+                    Aksi
+                  </th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-3.png" alt="image" />
+                    Poktanganteng
                   </td>
                   <td>
-                    John Richards
+                    Agriaswara
                   </td>
                   <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    LebahGanteng
                   </td>
                   <td>
-                    $138.00
+                    Web, Ganool
                   </td>
                   <td>
-                    Apr 12, 2015
+                    <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
                   </td>
                 </tr>
-                <tr>
-                  <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-4.png" alt="image" />
-                  </td>
-                  <td>
-                    Peter Meggik
-                  </td>
-                  <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </td>
-                  <td>
-                    $ 77.99
-                  </td>
-                  <td>
-                    May 15, 2015
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-1.png" alt="image" />
-                  </td>
-                  <td>
-                    Edward
-                  </td>
-                  <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </td>
-                  <td>
-                    $ 160.25
-                  </td>
-                  <td>
-                    May 03, 2015
-                  </td>
-                </tr>
-                <tr>
+                {{-- <tr>
                   <td class="py-1">
                     <img src="../../images/faces-clipart/pic-2.png" alt="image" />
                   </td>
                   <td>
-                    John Doe
+                    Messsy Adam
                   </td>
                   <td>
                     <div class="progress">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </td>
                   <td>
-                    $ 123.21
+                    $245.30
                   </td>
                   <td>
-                    April 05, 2015
+                    July 1, 2015
                   </td>
-                </tr>
-                <tr>
-                  <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-3.png" alt="image" />
-                  </td>
-                  <td>
-                    Henry Tom
-                  </td>
-                  <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </td>
-                  <td>
-                    $ 150.00
-                  </td>
-                  <td>
-                    June 16, 2015
-                  </td>
-                </tr>
+                </tr> --}}
               </tbody>
             </table>
           </div>

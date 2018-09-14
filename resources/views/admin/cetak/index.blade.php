@@ -7,7 +7,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Formulir Cetak SK</h4>
-          <form class="form-control" action="{{ route('cetak.store') }}" method="post">
+          <form class="form-control" action="{{-- {{ route('cetak.store') }} --}}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleFormControlSelect2">Jenis Kegiatan</label>
