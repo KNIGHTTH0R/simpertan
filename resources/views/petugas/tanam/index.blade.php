@@ -9,7 +9,7 @@
         <div class="card-body">
           <div class="btn-toolbar pull-right">
             <div class="btn-group">
-              <button type="button" name="button"></button>
+              <a href="{{route('petugas_tanam.create')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i>Tambah Laporan</a>
             </div>
           </div>
           <h4 class="card-title">Daftar Laporan Tanam</h4>

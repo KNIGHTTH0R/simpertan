@@ -26,6 +26,7 @@ class TanamController extends Controller
     public function create()
     {
         //
+        return view('petugas.tanam.form');
     }
 
     /**
