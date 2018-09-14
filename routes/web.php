@@ -64,3 +64,11 @@ Route::group(['prefix' => 'kadis'], function() {
   Route::resource('kadis_dashboard', 'Kadis\DashboardController');
 });
 // end Route Bidang
+
+//start Route petugas
+Route::group(['prefix' => 'petugas'], function(){
+  Route::resource('petugas_dashboard', 'Petugas\DashboardController');
+  Route::resource('petugas_cetak', 'Petugas\CetakController');
+  Route::resource('petugas_tanam', 'Petugas\TanamController');
+});
+//end Route petugas
