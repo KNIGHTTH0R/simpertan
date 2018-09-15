@@ -47,13 +47,13 @@
             <div class="collapse" id="setting">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('admin_kegiatan.index') }}"> Kegiatan </a>
+                  <a class="nav-link" href="{{ route('admin_alsintanusulan.index') }}"> Alsintan Usulan </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin_alsintanpinjam.index') }}"> Alsintan Pinjam </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('admin_satuan.index') }}"> Satuan </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('admin_barangpinjam.index') }}"> Barang Pinjam </a>
                 </li>
               </ul>
             </div>

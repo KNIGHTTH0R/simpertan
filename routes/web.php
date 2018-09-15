@@ -42,10 +42,10 @@ Route::group(['prefix' => 'admin'], function(){
   Route::resource('admin_user', 'Admin\UserController');
 
   //start setting menu
-  Route::resource('admin_kegiatan', 'Admin\KegiatanController');
+  Route::resource('admin_alsintanusulan', 'Admin\AlsintanUsulanController');
   Route::resource('admin_satuan', 'Admin\SatuanController');
   Route::resource('admin_role', 'Admin\RoleController');
-  Route::resource('admin_barangpinjam', 'Admin\BarangpinjamController');
+  Route::resource('admin_alsintanpinjam', 'Admin\AlsintanPinjamController');
   //end setting menu
 });
 // end Route Admin

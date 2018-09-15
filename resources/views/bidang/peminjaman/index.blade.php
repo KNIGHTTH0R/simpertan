@@ -7,7 +7,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Daftar Pengajuan Kegiatan</h4>
+              <h4 class="card-title">Daftar Peminjaman Alsintan</h4>
               <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>
@@ -19,7 +19,10 @@
                         Poktan
                       </th>
                       <th>
-                        Nama Barang
+                        Nama
+                      </th>
+                      <th>
+                        Merk
                       </th>
                       <th>
                         Jumlah
@@ -36,6 +39,9 @@
                       <th>
                         Tanggal Selesai Pinjam
                       </th>
+                      <th>
+                        Aksi
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,19 +56,26 @@
                         Traktor
                       </td>
                       <td>
+                        Yanmaru
+                      </td>
+                      <td>
                         1
                       </td>
                       <td>
                         Unit
                       </td>
                       <td>
-                        Accepted
+                        <label class="badge badge-success">Accepted</label>
                       </td>
                       <td>
                         12 September 2018
                       </td>
                       <td>
                         15 Desember 2018
+                      </td>
+                      <td>
+                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
                       </td>
                     </tr>
                     <tr>
@@ -73,16 +86,19 @@
                         Sukatani
                       </td>
                       <td>
-                        Lahan
+                        Handsprayer
+                      </td>
+                      <td>
+                        Samsul
                       </td>
                       <td>
                         1
                       </td>
                       <td>
-                        Ha
+                        Unit
                       </td>
                       <td>
-                        Accepted
+                        <label class="badge badge-success">Accepted</label>
                       </td>
                       <td>
                         12 September 2018
@@ -90,11 +106,16 @@
                       <td>
                         15 Desember 2018
                       </td>
+                      <td>
+                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
+              <br>
               <div class="row">
                 <div class="col-md-6">
                   <button type="submit" class="btn btn-success mr-2">Cetak</button>

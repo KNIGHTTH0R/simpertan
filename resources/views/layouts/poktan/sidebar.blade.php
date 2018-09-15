@@ -10,13 +10,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('poktan_pengajuan.index') }}">
               <i class="menu-icon mdi mdi-inbox"></i>
-              <span class="menu-title">Form Pengajuan Kegiatan</span>
+              <span class="menu-title">Form Pengajuan Alsintan</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('poktan_peminjaman.index') }}">
               <i class="menu-icon mdi mdi-briefcase"></i>
-              <span class="menu-title">Form Pengajuan Peminjaman</span>
+              <span class="menu-title">Form Peminjaman Alsintan</span>
             </a>
           </li>
           <li class="nav-item">

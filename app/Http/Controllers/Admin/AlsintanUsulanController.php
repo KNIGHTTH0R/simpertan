@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BarangpinjamController extends Controller
+class AlsintanUsulanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class BarangpinjamController extends Controller
     public function index()
     {
         //
-        return view('admin.barangpinjam.index');
+        return view('admin.alsintanusulan.index');
     }
 
     /**

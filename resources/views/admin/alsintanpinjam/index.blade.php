@@ -6,12 +6,14 @@
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <div class='btn-toolbar pull-right'>
-            <div class='btn-group'>
-                <button type="button" class="btn btn-primary btn-rounded btn-fw" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Barang Alsintan</button>
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="card-title">Daftar Barang Alsintan Untuk Peminjaman</h4>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Alsintan</button>
             </div>
           </div>
-          <h4 class="card-title">Daftar Barang Alsintan</h4>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -23,10 +25,16 @@
                     Nama
                   </th>
                   <th>
-                    Jenis
+                    Merk
                   </th>
                   <th>
                     Jumlah
+                  </th>
+                  <th>
+                    Tahun
+                  </th>
+                  <th>
+                    Kegiatan/Sumber
                   </th>
                   <th>
                     Aksi
@@ -39,13 +47,19 @@
                     1
                   </td>
                   <td>
-                    Traktor
+                    Traktor TR2 8,5 PK
                   </td>
                   <td>
-                    Besar
+                    Yanmar YST Pro XL
                   </td>
                   <td>
-                    100
+                    20
+                  </td>
+                  <td>
+                    2018
+                  </td>
+                  <td>
+                    APBN
                   </td>
                   <td>
                     <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
