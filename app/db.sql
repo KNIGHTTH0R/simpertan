@@ -1,5 +1,5 @@
 /*
-SQLyog Professional v12.4.3 (64 bit)
+SQLyog Ultimate v12.4.3 (64 bit)
 MySQL - 10.1.34-MariaDB : Database - simpertan
 *********************************************************************
 */
@@ -15,6 +15,42 @@ MySQL - 10.1.34-MariaDB : Database - simpertan
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`simpertan` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `simpertan`;
+
+/*Table structure for table `alsintan_pinjam` */
+
+DROP TABLE IF EXISTS `alsintan_pinjam`;
+
+CREATE TABLE `alsintan_pinjam` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `jumlah` int(5) DEFAULT NULL,
+  `merk` varchar(255) DEFAULT NULL,
+  `tahun` varchar(4) DEFAULT NULL,
+  `sumber` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `alsintan_pinjam` */
+
+/*Table structure for table `alsintan_usulan` */
+
+DROP TABLE IF EXISTS `alsintan_usulan`;
+
+CREATE TABLE `alsintan_usulan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `merk` varchar(255) DEFAULT NULL,
+  `jumlah` varchar(5) DEFAULT NULL,
+  `tahun` varchar(4) DEFAULT NULL,
+  `sumber` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `alsintan_usulan` */
 
 /*Table structure for table `desa` */
 
@@ -483,91 +519,26 @@ insert  into `kecamatan`(`id`,`nama`,`created_at`,`updated_at`) values
 ('3202291','CIKAKAK','2018-01-06 00:16:20','2018-01-06 00:16:20'),
 ('3202300','KABANDUNGAN','2018-01-06 00:16:20','2018-01-06 00:16:20');
 
-/*Table structure for table `kegiatan` */
-
-DROP TABLE IF EXISTS `kegiatan`;
-
-CREATE TABLE `kegiatan` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `kegiatan` */
-
-/*Table structure for table `komoditas` */
-
-DROP TABLE IF EXISTS `komoditas`;
-
-CREATE TABLE `komoditas` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `komoditas` */
-
-CREATE TABLE `alsintan_pinjam` (
-  `id` INT(11) NOT NULL,
-  `nama` VARCHAR(255) DEFAULT NULL,
-  `jumlah` VARCHAR(5) DEFAULT NULL,
-  `merk` VARCHAR(255) DEFAULT NULL,
-  `tahun` VARCHAR(4) DEFAULT NULL,
-  `sumber` VARCHAR(255) DEFAULT NULL,
-  `created_at` DATETIME DEFAULT NULL,
-  `updated_at` DATETIME DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `alsintan_usulan` (
-  `id` INT(11) NOT NULL,
-  `nama` VARCHAR(255) DEFAULT NULL,
-  `merk` VARCHAR(255) DEFAULT NULL,
-  `jumlah` VARCHAR(5) DEFAULT NULL,
-  `tahun` VARCHAR(4) DEFAULT NULL,
-  `sumber` VARCHAR(255) DEFAULT NULL,
-  `created_at` DATETIME DEFAULT NULL,
-  `updated_at` DATETIME DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=latin1;
+/*Table structure for table `peminjaman` */
 
 DROP TABLE IF EXISTS `peminjaman`;
 
 CREATE TABLE `peminjaman` (
-  `id` INT(11) NOT NULL,
-  `poktan_id` VARCHAR(5) DEFAULT NULL,
-  `alsintan_pinjam_id` VARCHAR(5) DEFAULT NULL,
-  `mulai_pinjam` TIMESTAMP DEFAULT 0,
-  `selesai_pinjam` TIMESTAMP DEFAULT 0,
-  `jumlah` VARCHAR(4) DEFAULT NULL,
-  `is_approved` VARCHAR(2) DEFAULT NULL,
-  `is_returned` VARCHAR(2) DEFAULT NULL,
-  `catatan` VARCHAR(255) DEFAULT NULL,
-  `created_at` DATETIME DEFAULT NULL,
-  `updated_at` DATETIME DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=latin1;
-
-
-/*Table structure for table `output_kegiatan` */
-
-DROP TABLE IF EXISTS `output_kegiatan`;
-
-CREATE TABLE `output_kegiatan` (
   `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `kegiatan_id` varchar(5) DEFAULT NULL,
-  `satuan_id` varchar(2) DEFAULT NULL,
+  `poktan_id` varchar(5) DEFAULT NULL,
+  `alsintan_pinjam_id` varchar(5) DEFAULT NULL,
+  `mulai_pinjam` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `selesai_pinjam` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `jumlah` int(5) DEFAULT NULL,
+  `is_approved` varchar(1) DEFAULT NULL,
+  `is_returned` varchar(1) DEFAULT NULL,
+  `catatan` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `output_kegiatan` */
+/*Data for the table `peminjaman` */
 
 /*Table structure for table `poktan` */
 
@@ -578,10 +549,10 @@ CREATE TABLE `poktan` (
   `nama` varchar(255) DEFAULT NULL,
   `alamat` text,
   `nama_ketua` varchar(255) DEFAULT NULL,
-  `telp` varchar(255) DEFAULT NULL,
-  `id_kec` varchar(15) DEFAULT NULL,
-  `id_desa` varchar(15) DEFAULT NULL,
-  `id_komoditas` varchar(5) DEFAULT NULL,
+  `telp` varchar(15) DEFAULT NULL,
+  `kecamatan_id` varchar(15) DEFAULT NULL,
+  `desa_id` varchar(15) DEFAULT NULL,
+  `komoditas_id` varchar(5) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -589,11 +560,11 @@ CREATE TABLE `poktan` (
 
 /*Data for the table `poktan` */
 
-/*Table structure for table `role` */
+/*Table structure for table `roles` */
 
-DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `roles`;
 
-CREATE TABLE `role` (
+CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -601,7 +572,10 @@ CREATE TABLE `role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `role` */
+/*Data for the table `roles` */
+
+insert  into `roles`(`id`,`nama`,`created_at`,`updated_at`) values 
+(1,'admin','2018-09-17 09:23:52','2018-09-17 09:23:55');
 
 /*Table structure for table `satuan` */
 
@@ -642,7 +616,7 @@ CREATE TABLE `usulan` (
   `id` int(11) NOT NULL,
   `poktan_id` varchar(5) DEFAULT NULL,
   `alsintan_usulan_id` varchar(5) DEFAULT NULL,
-  `jumlah` int(11) DEFAULT NULL,
+  `jumlah` int(5) DEFAULT NULL,
   `catatan` text,
   `is_approved` varchar(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
