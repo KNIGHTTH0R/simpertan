@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('pdf.pengajuan');
+  // return view('pdf.pengajuan');
+  return view('welcome');
 });
 
 Auth::routes();

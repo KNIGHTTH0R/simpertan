@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
+use App\User;
+use App\Role;
 
 class DashboardController extends Controller
 {
@@ -14,8 +18,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.dashboard.index');
+        // $role = DB::table('roles')->where('id', 1)->first();
+        $role = Role::where('id', 1)->first();
+        print_r($role);
+        // return view('admin.dashboard.index');
     }
 
     /**

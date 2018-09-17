@@ -511,6 +511,48 @@ CREATE TABLE `komoditas` (
 
 /*Data for the table `komoditas` */
 
+CREATE TABLE `alsintan_pinjam` (
+  `id` INT(11) NOT NULL,
+  `nama` VARCHAR(255) DEFAULT NULL,
+  `jumlah` VARCHAR(5) DEFAULT NULL,
+  `merk` VARCHAR(255) DEFAULT NULL,
+  `tahun` VARCHAR(4) DEFAULT NULL,
+  `sumber` VARCHAR(255) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT NULL,
+  `updated_at` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `alsintan_usulan` (
+  `id` INT(11) NOT NULL,
+  `nama` VARCHAR(255) DEFAULT NULL,
+  `merk` VARCHAR(255) DEFAULT NULL,
+  `jumlah` VARCHAR(5) DEFAULT NULL,
+  `tahun` VARCHAR(4) DEFAULT NULL,
+  `sumber` VARCHAR(255) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT NULL,
+  `updated_at` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `peminjaman`;
+
+CREATE TABLE `peminjaman` (
+  `id` INT(11) NOT NULL,
+  `poktan_id` VARCHAR(5) DEFAULT NULL,
+  `alsintan_pinjam_id` VARCHAR(5) DEFAULT NULL,
+  `mulai_pinjam` TIMESTAMP DEFAULT 0,
+  `selesai_pinjam` TIMESTAMP DEFAULT 0,
+  `jumlah` VARCHAR(4) DEFAULT NULL,
+  `is_approved` VARCHAR(2) DEFAULT NULL,
+  `is_returned` VARCHAR(2) DEFAULT NULL,
+  `catatan` VARCHAR(255) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT NULL,
+  `updated_at` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
+
+
 /*Table structure for table `output_kegiatan` */
 
 DROP TABLE IF EXISTS `output_kegiatan`;
@@ -584,6 +626,7 @@ CREATE TABLE `users` (
   `username` varchar(255) DEFAULT NULL,
   `password` text,
   `role_id` varchar(5) DEFAULT NULL,
+  `poktan_id` varchar(5) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -597,10 +640,11 @@ DROP TABLE IF EXISTS `usulan`;
 
 CREATE TABLE `usulan` (
   `id` int(11) NOT NULL,
-  `kegiatan_id` varchar(5) DEFAULT NULL,
-  `catatan` text,
-  `is_approval` varchar(1) DEFAULT NULL,
+  `poktan_id` varchar(5) DEFAULT NULL,
+  `alsintan_usulan_id` varchar(5) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
+  `catatan` text,
+  `is_approved` varchar(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
