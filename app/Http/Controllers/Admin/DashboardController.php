@@ -19,9 +19,9 @@ class DashboardController extends Controller
     public function index()
     {
         // $role = DB::table('roles')->where('id', 1)->first();
-        $role = Role::where('id', 1)->first();
-        print_r($role);
-        // return view('admin.dashboard.index');
+        // $role = Role::where('id', 1)->first();
+        // print_r($role);
+        return view('admin.dashboard.index');
     }
 
     /**

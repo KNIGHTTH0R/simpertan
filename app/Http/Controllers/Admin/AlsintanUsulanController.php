@@ -25,7 +25,7 @@ class AlsintanUsulanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.alsintanusulan.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class AlsintanUsulanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.alsintanusulan.edit');
     }
 
     /**

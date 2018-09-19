@@ -27,11 +27,16 @@ class PeminjamanController extends Controller
 
     public function index()
     {
-        return view('poktan.peminjaman_alsintan');
+        return view('poktan.peminjaman.index');
     }
 
-    public function cetakPeminjaman()
+    public function edit(Request $request)
     {
-        return view('poktan.cetak_peminjaman');
+        return view('poktan.peminjaman.edit');
+    }
+
+    public function print()
+    {
+        return view('poktan.peminjaman._print');
     }
 }

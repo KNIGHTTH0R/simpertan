@@ -63,7 +63,7 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bidang.peminjaman.edit');
     }
 
     /**

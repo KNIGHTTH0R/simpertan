@@ -11,7 +11,7 @@
               <h4 class="card-title">Daftar Barang Alsintan Untuk Peminjaman</h4>
             </div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Alsintan</button>
+              <a href="{{ route('admin_alsintanpinjam.create') }}" type="button" class="btn btn-primary btn-rounded btn-fw pull-right"><i class="fa fa-plus"></i>Tambah Alsintan</a>
             </div>
           </div>
           <div class="table-responsive">
@@ -62,10 +62,31 @@
                     APBN
                   </td>
                   <td>
-                    <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                    <a href="{{ route('admin_alsintanpinjam.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus"><i class="fa fa-trash fa-lg"></i></button>
                   </td>
                 </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Alsintan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p align="center">Yakin ingin menghapus Alsintan?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Hapus</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </tbody>
             </table>
           </div>
@@ -75,3 +96,11 @@
   </div>
 </div>
 @endsection
+
+@push('name')
+  {{-- <script>
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script> --}}
+@endpush

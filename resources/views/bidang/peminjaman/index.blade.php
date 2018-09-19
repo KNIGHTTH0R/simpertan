@@ -74,8 +74,7 @@
                         15 Desember 2018
                       </td>
                       <td>
-                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="{{ route('bidang_peminjaman.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane fa-lg"></i></a>
                       </td>
                     </tr>
                     <tr>
@@ -107,8 +106,7 @@
                         15 Desember 2018
                       </td>
                       <td>
-                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane fa-lg"></i></a>
                       </td>
                     </tr>
                   </tbody>

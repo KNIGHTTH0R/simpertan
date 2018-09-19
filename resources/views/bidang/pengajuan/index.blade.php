@@ -62,8 +62,7 @@
                         <label class="badge badge-success">Accepted</label>
                       </td>
                       <td>
-                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="{{ route('bidang_pengajuan.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane fa-lg"></i></a>
                       </td>
                     </tr>
                     <tr>
@@ -89,8 +88,7 @@
                         <label class="badge badge-success">Accepted</label>
                       </td>
                       <td>
-                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane fa-lg"></i></a>
                       </td>
                     </tr>
                   </tbody>

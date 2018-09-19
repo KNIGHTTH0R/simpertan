@@ -3,38 +3,32 @@
 @section('content')
 <div class="content-wrapper">
   <div class="row">
+    
+    <!-- kadis & bidang -->
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="card-title">Daftar Barang Alsintan Untuk Pengajuan</h4>
+              <h4 class="card-title">Daftar User Kadis & Bidang</h4>
             </div>
             <div class="col-md-6">
-              <a href="{{ route('admin_alsintanusulan.create') }}" type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Alsintan</a>
+              <a href="{{ route('admin_staffuser.create') }}" class="btn btn-primary btn-rounded btn-fw pull-right"><i class="fa fa-plus"></i>Tambah Kadis/Bidang</a>
             </div>
+
           </div>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>
-                    No
+                    Username
                   </th>
                   <th>
-                    Nama
+                    role
                   </th>
                   <th>
-                    Merk
-                  </th>
-                  <th>
-                    Jumlah
-                  </th>
-                  <th>
-                    Tahun
-                  </th>
-                  <th>
-                    Kegiatan/Sumber
+                    Date Created
                   </th>
                   <th>
                     Aksi
@@ -44,41 +38,32 @@
               <tbody>
                 <tr>
                   <td class="py-1">
-                    1
+                    kadisganteng
                   </td>
                   <td>
-                    Traktor TR2 8,5 PK
+                    kadis
                   </td>
                   <td>
-                    Yanmar YST Pro XL
+                    19 Agustus 2018
                   </td>
                   <td>
-                    20
-                  </td>
-                  <td>
-                    2018
-                  </td>
-                  <td>
-                    APBN
-                  </td>
-                  <td>
-                    <a href="{{ route('admin_alsintanusulan.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus"><i class="fa fa-trash fa-lg"></i></button>
+                    <a href="{{ route('admin_staffuser.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapusKadisBidang"><i class="fa fa-trash fa-lg"></i></button>
                   </td>
                 </tr>
-
-                <!-- Modal -->
-                <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                
+                <!-- Start Modal Hapus Kadis & Bidang -->
+                <div class="modal fade" id="modalHapusKadisBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Hapus Alsintan</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Kadis / Bidang</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <p align="center">Yakin ingin menghapus Alsintan?</p>
+                        <p align="center">Yakin ingin menghapus user?</p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger">Hapus</button>
@@ -87,12 +72,15 @@
                     </div>
                   </div>
                 </div>
+                <!-- End Modal Hapus Kadis & Bidang -->
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 @endsection

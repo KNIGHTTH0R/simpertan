@@ -31,12 +31,33 @@
               <span class="menu-title">Cetak SK</span>
             </a>
           </li>
-          <li class="nav-item">
+          
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_user.index') }}">
               <i class="menu-icon mdi mdi-account"></i>
               <span class="menu-title">Management User</span>
             </a>
+          </li> --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-multiple"></i>
+              <span class="menu-title">Management User</span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="user">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin_staffuser.index') }}"> Kadis / Bidang </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin_poktanuser.index') }}"> Poktan </a>
+                </li>
+              </ul>
+            </div>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="auth">
               <i class="menu-icon mdi mdi-settings"></i>

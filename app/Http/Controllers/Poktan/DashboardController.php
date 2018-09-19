@@ -13,6 +13,6 @@ class DashboardController extends Controller
 	}
     public function index()
     {
-    	return view('poktan.dashboard');
+    	return view('poktan.dashboard.index');
     }
 }

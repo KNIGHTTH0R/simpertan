@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AlsintanPinjamController extends Controller
+class StaffUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class AlsintanPinjamController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.alsintanpinjam.index');
+        return view('admin.staffuser.index');
     }
 
     /**
@@ -25,7 +24,7 @@ class AlsintanPinjamController extends Controller
      */
     public function create()
     {
-        return view('admin.alsintanpinjam.create');
+        return view('admin.staffuser.create');
     }
 
     /**
@@ -58,7 +57,7 @@ class AlsintanPinjamController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.alsintanpinjam.edit');
+        return view('admin.staffuser.edit');
     }
 
     /**

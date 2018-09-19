@@ -25,7 +25,7 @@ class SatuanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.satuan.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class SatuanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.satuan.edit');
     }
 
     /**

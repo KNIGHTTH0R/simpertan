@@ -7,19 +7,36 @@
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          {{-- <div class='btn-toolbar pull-right'>
-            <div class='btn-group'>
-                <button type="button" class="btn btn-primary btn-rounded btn-fw" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah User Kadis/Bidang</button>
-            </div>
-          </div>
-          <h4 class="card-title">Daftar User Kadis & Bidang</h4> --}}
           <div class="row">
             <div class="col-md-6">
               <h4 class="card-title">Daftar User Kadis & Bidang</h4>
             </div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Kadis/Bidang</button>
+              <button type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-toggle="modal" data-target="#modalTambahKadisBidang"><i class="fa fa-plus"></i>Tambah Kadis/Bidang</button>
             </div>
+
+            <!-- Start Modal Tambah Kadis & Bidang -->
+            <div class="modal fade" id="modalTambahKadisBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kadis / Bidang</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p align="center">Yakin ingin menghapus user?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Hapus</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Modal Tambah Kadis & Bidang -->
+
           </div>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -52,28 +69,32 @@
                   </td>
                   <td>
                     <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapusKadisBidang"><i class="fa fa-trash fa-lg"></i></button>
                   </td>
                 </tr>
-                {{-- <tr>
-                  <td class="py-1">
-                    <img src="../../images/faces-clipart/pic-2.png" alt="image" />
-                  </td>
-                  <td>
-                    Messsy Adam
-                  </td>
-                  <td>
-                    <div class="progress">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                
+                <!-- Start Modal Hapus Kadis & Bidang -->
+                <div class="modal fade" id="modalHapusKadisBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Kadis / Bidang</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p align="center">Yakin ingin menghapus user?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Hapus</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      </div>
                     </div>
-                  </td>
-                  <td>
-                    $245.30
-                  </td>
-                  <td>
-                    July 1, 2015
-                  </td>
-                </tr> --}}
+                  </div>
+                </div>
+                <!-- End Modal Hapus Kadis & Bidang -->
+
               </tbody>
             </table>
           </div>
@@ -130,9 +151,32 @@
                   </td>
                   <td>
                     <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapusPoktan"><i class="fa fa-trash fa-lg"></i></button>
                   </td>
                 </tr>
+
+                <!-- Start Modal Poktan -->
+                <div class="modal fade" id="modalHapusPoktan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Poktan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p align="center">Yakin ingin menghapus Poktan?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Hapus</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Modal Hapus Kadis & Bidang -->
+
               </tbody>
             </table>
           </div>
@@ -140,26 +184,6 @@
       </div>
     </div>
 
-    <!-- Modal kadis & bidang -->
-    <div class="modal fade" id="modalPoktan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 @endsection

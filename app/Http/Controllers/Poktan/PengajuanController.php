@@ -27,11 +27,16 @@ class PengajuanController extends Controller
     public function index()
     {
         // return view('layouts.poktan.master_poktan');
-        return view('poktan.pengajuan_alsintan');
+        return view('poktan.pengajuan.index');
     }
 
-    public function cetakPengajuan()
+    public function edit(Request $request)
     {
-        return view('poktan.cetak_pengajuan');
+        return view('poktan.pengajuan.edit');
+    }
+
+    public function print()
+    {
+        return view('poktan.pengajuan._print');
     }
 }

@@ -3,15 +3,17 @@
 @section('content')
 <div class="content-wrapper">
   <div class="row">
+
+    <!-- poktan -->
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="card-title">Daftar Barang Alsintan Untuk Pengajuan</h4>
+              <h4 class="card-title">Daftar User Poktan</h4>
             </div>
             <div class="col-md-6">
-              <a href="{{ route('admin_alsintanusulan.create') }}" type="button" class="btn btn-primary btn-rounded btn-fw pull-right" data-togle="modal" data-target="#modalKadisBidang"><i class="fa fa-plus"></i>Tambah Alsintan</a>
+              <a href="{{ route('admin_poktanuser.create') }}" class="btn btn-primary btn-rounded btn-fw pull-right"><i class="fa fa-plus"></i>Tambah Poktan</a>
             </div>
           </div>
           <div class="table-responsive">
@@ -19,22 +21,16 @@
               <thead>
                 <tr>
                   <th>
-                    No
+                    Username
                   </th>
                   <th>
-                    Nama
+                    Nama Poktan
                   </th>
                   <th>
-                    Merk
+                    Kecamatan
                   </th>
                   <th>
-                    Jumlah
-                  </th>
-                  <th>
-                    Tahun
-                  </th>
-                  <th>
-                    Kegiatan/Sumber
+                    Desa
                   </th>
                   <th>
                     Aksi
@@ -44,41 +40,35 @@
               <tbody>
                 <tr>
                   <td class="py-1">
-                    1
+                    Poktanganteng
                   </td>
                   <td>
-                    Traktor TR2 8,5 PK
+                    Agriaswara
                   </td>
                   <td>
-                    Yanmar YST Pro XL
+                    Web
                   </td>
                   <td>
-                    20
+                    Ganool
                   </td>
                   <td>
-                    2018
-                  </td>
-                  <td>
-                    APBN
-                  </td>
-                  <td>
-                    <a href="{{ route('admin_alsintanusulan.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus"><i class="fa fa-trash fa-lg"></i></button>
+                    <a href="{{ route('admin_poktanuser.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapusPoktan"><i class="fa fa-trash fa-lg"></i></button>
                   </td>
                 </tr>
 
-                <!-- Modal -->
-                <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Start Modal Poktan -->
+                <div class="modal fade" id="modalHapusPoktan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Hapus Alsintan</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Poktan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <p align="center">Yakin ingin menghapus Alsintan?</p>
+                        <p align="center">Yakin ingin menghapus Poktan?</p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger">Hapus</button>
@@ -87,12 +77,15 @@
                     </div>
                   </div>
                 </div>
+                <!-- End Modal Hapus Kadis & Bidang -->
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 @endsection

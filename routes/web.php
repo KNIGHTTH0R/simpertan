@@ -26,9 +26,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'poktan'], function() {
   Route::resource('poktan_dashboard', 'Poktan\DashboardController');
   Route::resource('poktan_pengajuan', 'Poktan\PengajuanController');
+  Route::resource('poktan_pengajuan/id/edit', 'Poktan\PengajuanController');
   Route::resource('poktan_peminjaman', 'Poktan\PeminjamanController');
-	Route::get('/poktan_cetak_pengajuan', 'Poktan\PengajuanController@cetakPengajuan')->name('poktan_cetak_pengajuan');
-	Route::get('/poktan_cetak_peminjaman', 'Poktan\PeminjamanController@cetakPeminjaman')->name('poktan_cetak_peminjaman');
+  Route::resource('poktan_peminjaman/id/edit', 'Poktan\PeminjamanController');
+	Route::get('/poktan_cetak_pengajuan', 'Poktan\PengajuanController@print')->name('poktan_cetak_pengajuan');
+	Route::get('/poktan_cetak_peminjaman', 'Poktan\PeminjamanController@print')->name('poktan_cetak_peminjaman');
 });
 // end Route POKTAN
 
@@ -40,13 +42,26 @@ Route::group(['prefix' => 'admin'], function(){
   Route::resource('admin_laporantanam', 'Admin\LaporantanamController');
 
   Route::resource('admin_cetak', 'Admin\CetakController');
-  Route::resource('admin_user', 'Admin\UserController');
+  
+  //start user menu
+  Route::resource('admin_staffuser', 'Admin\StaffUserController');
+  Route::resource('admin_staffuser/id/edit', 'Admin\StaffUserController');
+
+  Route::resource('admin_poktanuser', 'Admin\PoktanUserController');
+  Route::resource('admin_poktanuser/id/edit', 'Admin\PoktanUserController');
+  //end user menu
 
   //start setting menu
   Route::resource('admin_alsintanusulan', 'Admin\AlsintanUsulanController');
-  Route::resource('admin_satuan', 'Admin\SatuanController');
-  Route::resource('admin_role', 'Admin\RoleController');
+  Route::resource('admin_alsintanusulan/id/edit', 'Admin\AlsintanUsulanController');
+
   Route::resource('admin_alsintanpinjam', 'Admin\AlsintanPinjamController');
+  Route::resource('admin_alsintanpinjam/id/edit', 'Admin\AlsintanUsulanController');
+
+  Route::resource('admin_satuan', 'Admin\SatuanController');
+  Route::resource('admin_satuan/id/edit', 'Admin\SatuanController');
+
+  Route::resource('admin_role', 'Admin\RoleController');
   //end setting menu
 });
 // end Route Admin
@@ -54,9 +69,11 @@ Route::group(['prefix' => 'admin'], function(){
 // start Route Bidang
 Route::group(['prefix' => 'bidang'], function() {
 	Route::resource('bidang_pengajuan', 'Bidang\PengajuanController');
+  Route::resource('bidang_pengajuan/id/edit', 'Bidang\PengajuanController');
 	Route::get('bidang_cetak', 'Bidang\PengajuanController@show')->name('cetak');
 
 	Route::resource('bidang_peminjaman', 'Bidang\PeminjamanController');
+  Route::resource('bidang_peminjaman/id/edit', 'Bidang\PeminjamanController');
 });
 // end Route Bidang
 
