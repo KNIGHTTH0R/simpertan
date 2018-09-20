@@ -7,9 +7,19 @@
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Daftar Pengajuan Alsintan</h4>
+              <div class="row">
+                <div class="col-md-8">
+                  <h4 class="card-title">Daftar Pengajuan Alsintan</h4>
+                </div>
+                <div class="col-md-4">
+                  <div class="search-box">
+                    {{-- <i class="fa fa-search"></i> --}}
+                    <input type="text" name="search" class="form-control" placeholder="Cari Poktan ...">
+                  </div>
+                </div>
+              </div>
               <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped table-paginate" id="tabel-bidang">
                   <thead>
                     <tr>
                       <th>

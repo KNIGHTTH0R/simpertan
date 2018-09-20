@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <div class="row">
       <form class="col-md-12" action="">
-        <div class="col-md-12 {{-- col-md-offset-2 --}} grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Formulir Peminjaman Alsintan</h4>
