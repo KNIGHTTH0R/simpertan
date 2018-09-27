@@ -84,7 +84,7 @@
                         15 Desember 2018
                       </td>
                       <td>
-                        <a href="{{ route('bidang_peminjaman.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane fa-lg"></i></a>
+                        <a href="{{ route('bidang_peminjaman.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary" title="Tindakan"><i class="fa fa-paper-plane fa-lg"></i></a>
                       </td>
                     </tr>
                     <tr>

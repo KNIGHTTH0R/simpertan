@@ -23,7 +23,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <button type="submit" class="btn btn-success mr-2">Perbarui Satuan</button>
-                  <a href="{{ route('admin_satuan.index') }}" type="submit" class="btn btn-secondary mr-2">Batal</a>
+                  <a href="{{ route('admin_satuan.index') }}" class="btn btn-secondary mr-2">Batal</a>
                 </div>
               </div>
 
