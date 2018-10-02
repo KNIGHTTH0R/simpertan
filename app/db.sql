@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.4.3 (64 bit)
+SQLyog Professional v12.4.3 (64 bit)
 MySQL - 10.1.34-MariaDB : Database - simpertan
 *********************************************************************
 */
@@ -560,6 +560,24 @@ CREATE TABLE `poktan` (
 
 /*Data for the table `poktan` */
 
+/*Table structure for table `role_user` */
+
+DROP TABLE IF EXISTS `role_user`;
+
+CREATE TABLE `role_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` int(10) unsigned DEFAULT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `role_user` */
+
+insert  into `role_user`(`id`,`role_id`,`user_id`,`created_at`,`updated_at`) values 
+(1,1,1,'2018-10-01 11:17:01','2018-10-01 11:16:52');
+
 /*Table structure for table `roles` */
 
 DROP TABLE IF EXISTS `roles`;
@@ -575,7 +593,9 @@ CREATE TABLE `roles` (
 /*Data for the table `roles` */
 
 insert  into `roles`(`id`,`nama`,`created_at`,`updated_at`) values 
-(1,'admin','2018-09-17 09:23:52','2018-09-17 09:23:55');
+(1,'ROLE_ADMIN','2018-09-17 09:23:52','2018-09-17 09:23:55'),
+(2,'ROLE_BIDANG','2018-10-01 11:34:53','2018-10-01 11:34:56'),
+(3,'ROLE_PETUGAS','2018-10-01 11:35:06','2018-10-01 11:35:09');
 
 /*Table structure for table `satuan` */
 
@@ -596,17 +616,25 @@ CREATE TABLE `satuan` (
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` text,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` text NOT NULL,
   `role_id` varchar(5) DEFAULT NULL,
   `poktan_id` varchar(5) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
+
+insert  into `users`(`id`,`name`,`email`,`password`,`role_id`,`poktan_id`,`created_at`,`updated_at`) values 
+(1,'admin','admin@mail.com','$2y$12$qflisuPV3YeaCGrmOpt7HOPGEsf02Yeriuh0u.fB892f2gs02Ymti','1',NULL,'2018-09-17 10:30:30','2018-09-17 10:30:33'),
+(2,'admin','admin123@mail.com','$2y$10$/SwO3SqKJpxpdBeMYb/rLenFACRtbzw1uM7FOZNkKjFCLjGzBDluG','2',NULL,'2018-10-01 04:20:05','2018-10-01 04:20:05'),
+(3,'kresno','kresno.19@gmail.com','$2y$10$k0G3ENRIFzmwGGDG4ZIVmeJ3V3z1ZgmRSh87vDDHWncTDKwnVzWIK','1',NULL,'2018-10-01 04:32:53','2018-10-01 04:32:53'),
+(4,'pospor','asdf@gmail.com','$2y$10$xjib2jyJUJLGeJgnfpi3cOBBFYVQRMZNVZrO/WudFvHZ2zeF1ZnmK','2',NULL,'2018-10-01 04:44:53','2018-10-01 04:44:53'),
+(5,'test','test@mail.com','$2y$10$0vGoDQH4VqlTZT7rxm9Dr.RS1Va47JPzbIgkh8c1xkpf6Bzrhs.JO',NULL,NULL,'2018-10-01 04:48:47','2018-10-01 04:48:47');
 
 /*Table structure for table `usulan` */
 

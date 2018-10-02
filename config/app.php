@@ -152,8 +152,6 @@ return [
          */
          // Codedge\Fpdf\FpdfServiceProvider::class,
          Barryvdh\DomPDF\ServiceProvider::class,
-         //Debugbar
-         Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -215,7 +213,6 @@ return [
 
         //'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
