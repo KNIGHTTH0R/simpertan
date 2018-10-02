@@ -5,9 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use Illuminate\Support\Facades\Auth;
-use App\User;
-
 class LoginController extends Controller
 {
     /*
@@ -40,6 +37,25 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function authenticated()
+    {
+      if (auth()->user()->hasRole('ROLE_ADMIN'))
+      {
+        return redirect('/admin/dashboard');
+      } else {
+        if(auth()->user()->hasRole('ROLE_BIDANG'))
+        {
+          return redirect('/bidang/dashboard');
+        } else {
+          if(auth()->user()->hasRole('ROLE_PETUGAS'))
+          {
+            return redirect('/petugas/dashboard');
+          } else {
+            return redirect('/home');
+          }
+        }
+      }
+    }
     // protected function credentials(Request $request)
     // {
     //     return array_merge($request->only($this->username(), 'password'));
