@@ -11,7 +11,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text">{{ Auth::user()->name ?? "" }}</span>
               <img class="img-xs rounded-circle" src="{{ asset('/images/faces-clipart/pic-1.png') }}" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -29,9 +29,15 @@
                 </div>
               </a>
 
-              <a class="dropdown-item">
-                Sign Out
+              <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                Logout
               </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="post" style="display:none; ">
+                  {{ csrf_field() }}
+              </form>
             </div>
           </li>
         </ul>

@@ -41,15 +41,15 @@ class LoginController extends Controller
     {
       if (auth()->user()->hasRole('ROLE_ADMIN'))
       {
-        return redirect('/admin/dashboard');
+        return redirect('/admin/admin_dashboard');
       } else {
         if(auth()->user()->hasRole('ROLE_BIDANG'))
         {
-          return redirect('/bidang/dashboard');
+          return redirect('/bidang/bidang_dashboard');
         } else {
           if(auth()->user()->hasRole('ROLE_PETUGAS'))
           {
-            return redirect('/petugas/dashboard');
+            return redirect('/petugas/petugas_dashboard');
           } else {
             return redirect('/home');
           }
