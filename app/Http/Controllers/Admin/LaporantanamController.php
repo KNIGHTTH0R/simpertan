@@ -12,6 +12,12 @@ class LaporantanamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+      
+    }
+
     public function index()
     {
         //

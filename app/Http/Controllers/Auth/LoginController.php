@@ -51,7 +51,12 @@ class LoginController extends Controller
           {
             return redirect('/petugas/petugas_dashboard');
           } else {
-            return redirect('/home');
+            if(auth()->user()->hasRole('ROLE_POKTAN'))
+            {
+              return redirect('/poktan/poktan_dashboard');
+            } else {
+              return redirect('/login');
+            }
           }
         }
       }

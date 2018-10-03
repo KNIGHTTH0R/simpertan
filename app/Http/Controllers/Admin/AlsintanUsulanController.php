@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\AlsintanUsulan;
+
 class AlsintanUsulanController extends Controller
 {
     /**
@@ -12,10 +14,31 @@ class AlsintanUsulanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+
+    }
+
+
     public function index()
     {
         //
         return view('admin.alsintanusulan.index');
+    }
+
+    public function lookupMerkByJenis(Request $request)
+    {
+      $merk = AlsintanUsulan::where('nama', 'like', '%'. $request->input('q'). '%')
+          ->select('merk as merk')
+          ->get();
+
+      $result = [
+        'total_count' => count($merk),
+        'items' => $merk
+      ];
+
+      return response()->json($result);
     }
 
     /**

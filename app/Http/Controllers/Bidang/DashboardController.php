@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Bidang;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PeminjamanController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,15 +13,15 @@ class PeminjamanController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    function __construct()
+    public function __construct()
     {
-       
+       auth()->user()->hasRole('ROLE_KADIS');
     }
 
     public function index()
     {
         //
-        return view('admin.peminjaman.index');
+        return view('bidang.dashboard.index');
     }
 
     /**

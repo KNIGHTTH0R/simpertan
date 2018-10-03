@@ -11,19 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-  // return view('pdf.pengajuan');
-  return view('welcome');
-});
+// Route::get('/', function () {
+//   // return view('pdf.pengajuan');
+//   return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
+Route::group(['middleware' => 'auth'], function(){
+  Route::get('/', 'HomeController@index')->name('home');
+});
 // start Route POKTAN
-Route::group(['prefix' => 'poktan'], function() {
+Route::group(['prefix' => 'poktan', 'middleware' => 'auth'], function() {
   Route::resource('poktan_dashboard', 'Poktan\DashboardController');
   Route::resource('poktan_pengajuan', 'Poktan\PengajuanController');
   Route::resource('poktan_pengajuan/id/edit', 'Poktan\PengajuanController');
@@ -35,14 +34,14 @@ Route::group(['prefix' => 'poktan'], function() {
 // end Route POKTAN
 
 // start Route Admin
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
   Route::resource('admin_dashboard', 'Admin\DashboardController');
   Route::resource('admin_pengajuan', 'Admin\PengajuanController');
   Route::resource('admin_peminjaman', 'Admin\PeminjamanController');
   Route::resource('admin_laporantanam', 'Admin\LaporantanamController');
 
   Route::resource('admin_cetak', 'Admin\CetakController');
-  
+
   //start user menu
   Route::resource('admin_staffuser', 'Admin\StaffUserController');
   Route::resource('admin_staffuser/id/edit', 'Admin\StaffUserController');
@@ -67,8 +66,10 @@ Route::group(['prefix' => 'admin'], function(){
 // end Route Admin
 
 // start Route Bidang
-Route::group(['prefix' => 'bidang'], function() {
-	Route::resource('bidang_pengajuan', 'Bidang\PengajuanController');
+Route::group(['prefix' => 'bidang', 'middleware' => 'auth'], function() {
+  Route::resource('bidang_dashboard', 'Bidang\DashboardController');
+
+  Route::resource('bidang_pengajuan', 'Bidang\PengajuanController');
   Route::resource('bidang_pengajuan/id/edit', 'Bidang\PengajuanController');
 	Route::get('bidang_cetak', 'Bidang\PengajuanController@show')->name('cetak');
 
@@ -78,13 +79,13 @@ Route::group(['prefix' => 'bidang'], function() {
 // end Route Bidang
 
 // start Route Kadis
-Route::group(['prefix' => 'kadis'], function() {
+Route::group(['prefix' => 'kadis', 'middleware' => 'auth'], function() {
   Route::resource('kadis_dashboard', 'Kadis\DashboardController');
 });
 // end Route Bidang
 
 //start Route petugas
-Route::group(['prefix' => 'petugas'], function(){
+Route::group(['prefix' => 'petugas', 'middleware' => 'auth'], function(){
   Route::resource('petugas_dashboard', 'Petugas\DashboardController');
   Route::resource('petugas_cetak', 'Petugas\CetakController');
   Route::resource('petugas_tanam', 'Petugas\TanamController');

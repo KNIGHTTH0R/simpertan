@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Usulan;
+
 
 class AlsintanPinjamController extends Controller
 {
@@ -12,6 +14,11 @@ class AlsintanPinjamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+      
+    }
+
     public function index()
     {
         //

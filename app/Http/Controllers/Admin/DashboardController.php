@@ -16,6 +16,12 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+      
+    }
+
     public function index()
     {
         // $role = DB::table('roles')->where('id', 1)->first();

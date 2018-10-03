@@ -8,7 +8,7 @@
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Tambah Alsintan <small>(pengajuan)</small></h4>
-
+              
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group row">
@@ -56,31 +56,9 @@
               </div>
 
               <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Tahun</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="tahun" class="form-control" placeholder="misal : 2018">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Sumber/Kegiatan</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="sumber" class="form-control" placeholder="misal : APBN">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
                 <div class="col-md-6">
                   <button type="submit" class="btn btn-success mr-2">Tambah Alsintan</button>
-                  <a href="{{ route('admin_alsintanusulan.index') }}" class="btn btn-secondary mr-2">batal</a>
+                  <a href="{{ route('admin_alsintanusulan.index') }}" class="btn btn-secondary mr-2">Batal</a>
                 </div>
               </div>
 

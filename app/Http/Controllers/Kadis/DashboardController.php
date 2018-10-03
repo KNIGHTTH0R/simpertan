@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-    	# code
+      auth()->user()->hasRole('ROLE_KADIS');
     }
 
     public function index()
