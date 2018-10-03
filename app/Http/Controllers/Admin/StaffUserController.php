@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+use App\User;
+use App\Role;
 
 class StaffUserController extends Controller
 {
@@ -14,7 +18,23 @@ class StaffUserController extends Controller
      */
     public function index()
     {
-        return view('admin.staffuser.index');
+        $users = DB::table('users')
+                     ->join('role_user', 'role_user.user_id', 'users.id')
+                     ->join('roles', 'roles.id', 'role_user.role_id')
+                     // ->where(function($query){
+                     //        $query->where('role_user.role_id', 2)
+                     //              ->orWhere('role_user.role_id', 4);
+                     //    })
+                     ->where('role_user.role_id', 2)
+                     ->orWhere('role_user.role_id', 4)
+                     ->select('users.id', 'users.name as userName', 'users.email', 'roles.name as roleName', 'users.created_at')
+                     ->get();
+
+        // print_r($users);
+        return view('admin.staffuser.index', [
+            'users' => $users,
+            'count' => 1
+        ]);
     }
 
     /**
@@ -57,7 +77,17 @@ class StaffUserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.staffuser.edit');
+        $user = DB::table('users')
+                     ->join('role_user', 'role_user.user_id', 'users.id')
+                     ->join('roles', 'roles.id', 'role_user.role_id')
+                     ->where('users.id', $id)
+                     ->select('users.id', 'users.name as userName', 'users.email', 'roles.name as roleName', 'users.created_at')
+                     ->first();
+
+        // print_r($users);
+        return view('admin.staffuser.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -69,7 +99,19 @@ class StaffUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role_user = DB::table('role_user')->where('user_id', $id)->first();
+        $role = $role_user->role_id;
+        
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->update();
+
+        $role = Role::find($role);
+        $role->name = $request->role;
+        $role->update();
+
+        return redirect('admin/admin_staffuser')->with('status', 'User berhasil diubah');
     }
 
     /**

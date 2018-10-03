@@ -45,7 +45,8 @@ Route::group(['prefix' => 'admin'], function(){
   
   //start user menu
   Route::resource('admin_staffuser', 'Admin\StaffUserController');
-  Route::resource('admin_staffuser/id/edit', 'Admin\StaffUserController');
+  Route::resource('admin_staffuser/{id}/edit', 'Admin\StaffUserController');
+  Route::resource('admin_staffuser/{id}', 'Admin\StaffUserController');
 
   Route::resource('admin_poktanuser', 'Admin\PoktanUserController');
   Route::resource('admin_poktanuser/id/edit', 'Admin\PoktanUserController');
