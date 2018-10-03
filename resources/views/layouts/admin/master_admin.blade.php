@@ -33,5 +33,7 @@
     <!-- Custom js for this page-->
     <script src="{{ asset('/admin/js/dashboard.js') }}"></script>
     <!-- End custom js for this page-->
+
+    @stack('footer.javascript')
   </body>
 </html>
