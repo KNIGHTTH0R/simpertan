@@ -46,12 +46,28 @@ class PengajuanController extends Controller
      */
     public function store(Request $request)
     {
+      $user = auth()->user();
+
       $this->validate($request, [
-        'nama' => 'required',
-        'merk' => 'required',
+        'jenis_alsintan' => 'required',
+        'merk_alsintan' => 'required',
         'jumlah' => 'required',
         'satuan' => 'required',
       ]);
+
+      $usulan = new Usulan();
+      $usulan->poktan_id = $user->poktan_id;
+      $usulan->alsintan_usulan_id = AlsintanUsulan::select('id')
+                                  ->where('nama', '=', $request->input('jenis_alsintan'))
+                                  ->where('merk', '=', $request->input('merk_alsintan'))
+                                  ->first();
+      $usulan->jumlah = $request->input('jumlah');
+      $usulan->catatan= '';
+      $usulan->is_approved = '';
+      $usulan->save();
+
+      print_r($usulan);
+
     }
 
     public function edit(Request $request)
@@ -62,5 +78,12 @@ class PengajuanController extends Controller
     public function print()
     {
         return view('poktan.pengajuan._print');
+    }
+
+    public function getMerk(Request $request)
+    {
+      $merk = AlsintanUsulan::select('merk')
+      ->where('nama', '=', $request->input('jenis'))->get();
+      return response()->json($merk);
     }
 }

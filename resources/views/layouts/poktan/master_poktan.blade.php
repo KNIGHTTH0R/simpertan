@@ -32,6 +32,8 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="{{ asset('/admin/js/dashboard.js') }}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- End custom js for this page-->
+    @stack('footer.javascript')
   </body>
 </html>

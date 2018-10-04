@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Poktan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\AlsintanUsulan;
+use App\Usulan;
+
 class PeminjamanController extends Controller
 {
     /**
@@ -22,12 +25,18 @@ class PeminjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
 
     public function index()
     {
-        return view('poktan.peminjaman.index');
+      $jenis = AlsintanUsulan::select('nama')
+        ->distinct()
+        ->get();
+
+        return view('poktan.peminjaman.index', compact(
+          'jenis'
+        ));
     }
 
     public function edit(Request $request)
