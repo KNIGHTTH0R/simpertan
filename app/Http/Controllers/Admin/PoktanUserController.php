@@ -4,6 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
+use App\Poktan;
+use App\User;
+use App\Kecamatan;
+use App\Desa;
 
 class PoktanUserController extends Controller
 {
@@ -14,7 +21,20 @@ class PoktanUserController extends Controller
      */
     public function index()
     {
-        return view('admin.poktanuser.index');
+        // $users = User::whereNotNull('poktan_id')->get();
+        
+        $users = DB::table('users')
+                  ->join('poktan', 'poktan.id', 'users.poktan_id')
+                  ->join('kecamatan', 'kecamatan.id', 'poktan.kecamatan_id')
+                  ->join('desa', 'desa.id', 'poktan.desa_id')
+                  ->whereNotNull('users.poktan_id')
+                  ->select('users.id', 'poktan.nama', 'users.email', 'kecamatan.nama as nama_kecamatan', 'desa.nama as nama_desa')
+                  ->get();
+
+        return view('admin.poktanuser.index', [
+            'users' => $users,
+            'count' => 1
+        ]);
     }
 
     /**
@@ -57,7 +77,31 @@ class PoktanUserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.poktanuser.edit');
+        $user = DB::table('users')
+                  ->join('poktan', 'poktan.id', 'users.poktan_id')
+                  ->join('kecamatan', 'kecamatan.id', 'poktan.kecamatan_id')
+                  ->join('desa', 'desa.id', 'poktan.desa_id')
+                  ->whereNotNull('users.poktan_id')
+                  ->where('users.id', $id)
+                  ->select(
+                    'users.id',
+                    'users.name as namaUser', 
+                    'poktan.nama as namaPoktan', 
+                    'poktan.telp',
+                    'users.email',
+                    'kecamatan.nama as kecamatan', 
+                    'desa.nama as desa')
+                  ->first();
+
+        $kecamatan = DB::table('kecamatan')->orderBy('nama')->get();
+        $desa = DB::table('desa')->orderBy('nama')->get();
+
+        return view('admin.poktanuser.edit', [
+            'user' => $user,
+            'desa' => $desa,
+            'kecamatan' => $kecamatan,
+            'count' => 1
+        ]);
     }
 
     /**
@@ -69,7 +113,30 @@ class PoktanUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->ganti_password) {
+            if ($request->new_password <> $request->confirm_password) {
+                return redirect()->back()->withInput()->with('status', 'Password konfirmasi tidak sama');
+            }
+        }
+
+        $user = User::find($id);
+        $user->name = $request->userName;
+        $user->email = $request->email;
+        if ($request->ganti_password) {
+           $user->password = Hash::make($request->new_password);
+        }
+        $user->update();
+
+        $poktan = DB::table('poktan')
+            ->where('id', $user->poktan_id)
+            ->update([
+                'nama' => $request->poktanName,
+                'telp' => $request->telp,
+                'kecamatan_id' => $request->kecamatan,
+                'desa_id' => $request->desa
+            ]);
+
+        return redirect('admin/admin_poktanuser')->with('status', 'User berhasil diubah');
     }
 
     /**
