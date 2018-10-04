@@ -70,7 +70,7 @@
                   <div class="modal fade" id="modalHapusPoktan{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
-                        <form action="{{ route('admin_poktanuser.destroy', ['id' => $user->id]) }}" method="get" accept-charset="utf-8">
+                        <form action="{{ route('admin_poktanuser.destroy', ['id' => $user->id]) }}" method="POST" accept-charset="utf-8">
                           {{ method_field('DELETE') }}
                           <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                           <div class="modal-header">

@@ -29,6 +29,7 @@ class PoktanUserController extends Controller
                   ->join('desa', 'desa.id', 'poktan.desa_id')
                   ->whereNotNull('users.poktan_id')
                   ->select('users.id', 'poktan.nama', 'users.email', 'kecamatan.nama as nama_kecamatan', 'desa.nama as nama_desa')
+                  ->where('users.is_active', 1)
                   ->get();
 
         return view('admin.poktanuser.index', [
@@ -44,7 +45,13 @@ class PoktanUserController extends Controller
      */
     public function create()
     {
-        return view('admin.poktanuser.create');
+        $kecamatan = DB::table('kecamatan')->orderBy('nama')->get();
+        $desa = DB::table('desa')->orderBy('nama')->get();
+
+        return view('admin.poktanuser.create', [
+            'desa' => $desa,
+            'kecamatan' => $kecamatan
+        ]);
     }
 
     /**
@@ -55,7 +62,28 @@ class PoktanUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->password <> $request->confirm_password) {
+            return redirect()->back()->withInput()->with('status', 'Password konfirmasi tidak sama');
+        }
+
+        $poktan = DB::table('poktan')->insert([
+            [
+                'nama' => $request->poktanName,
+                'telp' => $request->telp,
+                'kecamatan_id' => $request->kecamatan,
+                'desa_id' => $request->desa
+            ]
+        ]);
+
+        $user = new User();
+        $user->name = $request->userName;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->poktan_id = DB::getPdo()->lastInsertId();
+        $user->is_active = 1;
+        $user->save();
+
+        return redirect('admin/admin_poktanuser')->with('status', 'User berhasil dibuat');
     }
 
     /**
@@ -147,6 +175,10 @@ class PoktanUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->is_active = 0;
+        $user->update();
+
+        return redirect('admin/admin_poktanuser')->with('status', 'User berhasil dihapus');
     }
 }

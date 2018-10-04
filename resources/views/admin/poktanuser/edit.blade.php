@@ -93,7 +93,7 @@
                     <div class="col-sm-9">
                       <select name="kecamatan" id="kecamatan" class="form-control">
                           @foreach ($kecamatan as $kec)
-                            <option value="{{ $kec->id }}" @if($kec->nama == $user->kecamatan) selected @endif">{{ $kec->nama }}</option>
+                            <option value="{{ $kec->id }}" @if($kec->nama == $user->kecamatan) selected @endif>{{ $kec->nama }}</option>
                           @endforeach
                         </select>
                     </div>
@@ -108,7 +108,7 @@
                     <div class="col-sm-9">
                       <select name="desa" id="desa" class="form-control">
                           @foreach ($desa as $des)
-                            <option value="{{ $des->id }}" @if($des->nama == $user->desa) selected @endif">{{ $des->nama }}</option>
+                            <option value="{{ $des->id }}" @if($des->nama == $user->desa) selected @endif>{{ $des->nama }}</option>
                           @endforeach
                         </select>
                     </div>
