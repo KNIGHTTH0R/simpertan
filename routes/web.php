@@ -44,8 +44,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
   //start user menu
   Route::resource('admin_staffuser', 'Admin\StaffUserController');
-  Route::resource('admin_staffuser/{id}/edit', 'Admin\StaffUserController');
-  Route::resource('admin_staffuser/{id}', 'Admin\StaffUserController');
 
   Route::resource('admin_poktanuser', 'Admin\PoktanUserController');
   Route::resource('admin_poktanuser/id/edit', 'Admin\PoktanUserController');
@@ -90,5 +88,11 @@ Route::group(['prefix' => 'petugas', 'middleware' => 'auth'], function(){
   Route::resource('petugas_dashboard', 'Petugas\DashboardController');
   Route::resource('petugas_cetak', 'Petugas\CetakController');
   Route::resource('petugas_tanam', 'Petugas\TanamController');
+});
+//end Route petugas
+
+//start Route petugas
+Route::group(['prefix' => 'api', 'middleware' => 'auth'], function(){
+  Route::post('merk', 'poktan\PengajuanController@getMerk')->name('lookup.merk.data');
 });
 //end Route petugas
