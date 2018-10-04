@@ -70,4 +70,9 @@ class User extends Authenticatable
       }
       return false;
     }
+
+    public function poktan()
+    {
+      return $this->hasOne('App\Poktan');
+    }
 }

@@ -42,12 +42,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
   Route::resource('admin_cetak', 'Admin\CetakController');
 
-  //start user menu
   Route::resource('admin_staffuser', 'Admin\StaffUserController');
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 9dc8d572bb58c064e07c0ff3c64c5f572e9595b5
   Route::resource('admin_poktanuser', 'Admin\PoktanUserController');
-  Route::resource('admin_poktanuser/id/edit', 'Admin\PoktanUserController');
-  //end user menu
+
 
   //start setting menu
   Route::resource('admin_alsintanusulan', 'Admin\AlsintanUsulanController');
