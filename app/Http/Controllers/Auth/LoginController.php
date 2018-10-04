@@ -39,26 +39,23 @@ class LoginController extends Controller
 
     public function authenticated()
     {
-      if (auth()->user()->hasRole('ROLE_ADMIN'))
-      {
+      if (auth()->user()->hasRole('ROLE_ADMIN')) {
         return redirect('/admin/admin_dashboard');
-      } else {
-        if(auth()->user()->hasRole('ROLE_BIDANG'))
-        {
-          return redirect('/bidang/bidang_dashboard');
-        } else {
-          if(auth()->user()->hasRole('ROLE_PETUGAS'))
-          {
-            return redirect('/petugas/petugas_dashboard');
-          } else {
-            if(auth()->user()->hasRole('ROLE_POKTAN'))
-            {
-              return redirect('/poktan/poktan_dashboard');
-            } else {
-              return redirect('/login');
-            }
-          }
-        }
+      }
+      elseif(auth()->user()->hasRole('ROLE_BIDANG')) {
+        return redirect('/bidang/bidang_dashboard');
+      }
+      elseif(auth()->user()->hasRole('ROLE_PETUGAS')) {
+        return redirect('/petugas/petugas_dashboard');
+      }
+      elseif(auth()->user()->hasRole('ROLE_KADIS')) {
+        return redirect('/kadis/kadis_dashboard');
+      }
+      elseif(auth()->user()->hasRole('ROLE_POKTAN')) {
+        return redirect('/poktan/poktan_dashboard');
+      }
+      else {
+        return redirect('/login');
       }
     }
     // protected function credentials(Request $request)
