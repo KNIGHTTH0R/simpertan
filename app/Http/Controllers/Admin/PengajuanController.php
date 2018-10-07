@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+
+use App\Usulan;
+
 
 class PengajuanController extends Controller
 {
@@ -14,8 +19,11 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.pengajuan.index');
+        $usulan = Usulan::orderBy('created_at')->get();
+        return view('admin.pengajuan.index', [
+            'usulan' => $usulan,
+            'count' => 1
+        ]);
     }
 
     /**

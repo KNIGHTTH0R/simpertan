@@ -3,7 +3,9 @@
 @section('content')
   <div class="content-wrapper">
     <div class="row">
-      <form class="col-md-12" action="">
+      <form class="col-md-12" method="POST" action="{{ route('admin_satuan.store') }}">
+        {{ method_field('POST') }}
+        <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">

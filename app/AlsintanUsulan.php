@@ -11,4 +11,8 @@ class AlsintanUsulan extends Model
 
     protected $fillable = ['nama, merk', 'jumlah'];
 
+    public function usulan()
+    {
+    	return $this->hasMany('App\usulan');
+    }
 }

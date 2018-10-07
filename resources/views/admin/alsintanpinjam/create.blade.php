@@ -3,12 +3,15 @@
 @section('content')
   <div class="content-wrapper">
     <div class="row">
-      <form class="col-md-12" action="">
+
+      <form class="col-md-12" method="POST" action="{{ route('admin_alsintanpinjam.store') }}">
+        {{ method_field('POST') }}
+        <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Tambah Alsintan <small>(peminjaman)</small></h4>
-
+              
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group row">
@@ -36,7 +39,7 @@
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Jumlah</label>
                     <div class="col-sm-8">
-                      <input type="number" class="form-control" placeholder="misal : 35">
+                      <input type="number" name="jumlah" class="form-control" placeholder="misal : 35">
                     </div>
                   </div>
                 </div>
@@ -44,7 +47,7 @@
                   <div class="form-group row">
                     <div class="col-sm-9">
                       <div class="col-sm-9">
-                        <select class="form-control" disabled="">
+                        <select nama="satuan" class="form-control" disabled="">
                           <option>Unit</option>
                           <option>Kilogram</option>
                           <option>Meter Persegi</option>

@@ -3,6 +3,15 @@
 @section('content')
 <div class="content-wrapper">
   <div class="row">
+
+    @if (session('status'))
+      <div class="col-md-12">
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+      </div>
+    @endif
+
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
@@ -42,52 +51,57 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="py-1">
-                    1
-                  </td>
-                  <td>
-                    Traktor TR2 8,5 PK
-                  </td>
-                  <td>
-                    Yanmar YST Pro XL
-                  </td>
-                  <td>
-                    20
-                  </td>
-                  <td>
-                    2018
-                  </td>
-                  <td>
-                    APBN
-                  </td>
-                  <td>
-                    <a href="{{ route('admin_alsintanpinjam.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus" title="Hapus"><i class="fa fa-trash fa-lg"></i></button>
-                  </td>
-                </tr>
+                @foreach ($alsintan_pinjam as $alsintan)
+                  <tr>
+                    <td class="py-1">
+                      {{ $count++ }}
+                    </td>
+                    <td>
+                      {{ $alsintan->nama }}
+                    </td>
+                    <td>
+                      {{ $alsintan->merk }}
+                    </td>
+                    <td>
+                      {{ $alsintan->jumlah }}
+                    </td>
+                    <td>
+                      {{ $alsintan->tahun }}
+                    </td>
+                    <td>
+                      {{ $alsintan->sumber }}
+                    </td>
+                    <td>
+                      <a href="{{ route('admin_alsintanpinjam.edit', ['id' => $alsintan->id]) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus{{ $alsintan->id }}" title="Hapus"><i class="fa fa-trash fa-lg"></i></button>
+                    </td>
+                  </tr>
 
-                <!-- Modal -->
-                <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <form action="" method="get" accept-charset="utf-8">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Hapus Alsintan</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p align="center">Yakin ingin menghapus Alsintan?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger">Hapus</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        </div>
-                      </form>
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalHapus{{ $alsintan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <form action="{{ route('admin_alsintanpinjam.destroy', ['id' => $alsintan->id]) }}" method="POST" accept-charset="utf-8">
+                          {{ method_field('DELETE') }}
+                          <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Alsintan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p align="center">Yakin ingin menghapus Alsintan {{ $alsintan->nama }}?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                          </div>
+                        </form>
+                      </div>
                     </div>
                   </div>
+                @endforeach
                 </div>
               </tbody>
             </table>

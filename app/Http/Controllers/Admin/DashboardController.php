@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\User;
 use App\Role;
+use App\AlsintanUsulan;
+use App\AlsintanPinjam;
 
 class DashboardController extends Controller
 {
@@ -24,10 +26,16 @@ class DashboardController extends Controller
 
     public function index()
     {
-        // $role = DB::table('roles')->where('id', 1)->first();
-        // $role = Role::where('id', 1)->first();
-        // print_r($role);
-        return view('admin.dashboard.index');
+        $stok_alsintan_usulan = AlsintanUsulan::all();
+
+        $stok_alsintan_pinjam = AlsintanPinjam::all();
+
+        return view('admin.dashboard.index', [
+            'stok_alsintan_usulan' => $stok_alsintan_usulan,
+            'stok_alsintan_pinjam' => $stok_alsintan_pinjam,
+            'count' => 1
+        ]);
+        // print_r($stok_alsintan_usulan);
     }
 
     /**

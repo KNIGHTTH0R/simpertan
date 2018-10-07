@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+
+use App\Peminjaman;
+
 class PeminjamanController extends Controller
 {
     /**
@@ -20,8 +25,11 @@ class PeminjamanController extends Controller
 
     public function index()
     {
-        //
-        return view('admin.peminjaman.index');
+        $peminjaman = Peminjaman::orderBy('created_at')->get();
+        return view('admin.peminjaman.index', [
+            'peminjaman' => $peminjaman,
+            'count' => 1
+        ]);
     }
 
     /**

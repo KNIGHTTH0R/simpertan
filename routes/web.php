@@ -39,28 +39,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
   Route::resource('admin_pengajuan', 'Admin\PengajuanController');
   Route::resource('admin_peminjaman', 'Admin\PeminjamanController');
   Route::resource('admin_laporantanam', 'Admin\LaporantanamController');
-
   Route::resource('admin_cetak', 'Admin\CetakController');
-
   Route::resource('admin_staffuser', 'Admin\StaffUserController');
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> 9dc8d572bb58c064e07c0ff3c64c5f572e9595b5
   Route::resource('admin_poktanuser', 'Admin\PoktanUserController');
-
 
   //start setting menu
   Route::resource('admin_alsintanusulan', 'Admin\AlsintanUsulanController');
-  Route::resource('admin_alsintanusulan/id/edit', 'Admin\AlsintanUsulanController');
-
   Route::resource('admin_alsintanpinjam', 'Admin\AlsintanPinjamController');
-  Route::resource('admin_alsintanpinjam/id/edit', 'Admin\AlsintanUsulanController');
-
   Route::resource('admin_satuan', 'Admin\SatuanController');
-  Route::resource('admin_satuan/id/edit', 'Admin\SatuanController');
-
   Route::resource('admin_role', 'Admin\RoleController');
   //end setting menu
 });

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Desa extends Model
 {
+	protected $table = 'desa';
+
     public function kecamatan()
     {
     	return $this->belongsTo('App\Kecamatan');
@@ -13,6 +15,6 @@ class Desa extends Model
 
     public function poktan()
     {
-    	return $this->belongsTo('App\Kecamatan');
+    	return $this->hasMany('App\Poktan');
     }
 }

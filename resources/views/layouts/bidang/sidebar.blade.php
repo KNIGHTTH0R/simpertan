@@ -2,6 +2,12 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
+            <a class="nav-link" href="{{ route('bidang_dashboard.index') }}">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('bidang_pengajuan.index') }}">
               <i class="menu-icon mdi mdi-inbox"></i>
               <span class="menu-title">Pengajuan Alsintan</span>

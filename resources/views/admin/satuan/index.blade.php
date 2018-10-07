@@ -3,6 +3,15 @@
 @section('content')
 <div class="content-wrapper">
   <div class="row">
+
+    @if (session('status'))
+      <div class="col-md-12">
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+      </div>
+    @endif
+
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
@@ -30,53 +39,47 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="py-1">
-                    1
-                  </td>
-                  <td>
-                    Meter
-                  </td>
-                  <td>
-                    <a href="{{ route('admin_satuan.edit', ['id' => 'id']) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus" title="Hapus"><i class="fa fa-trash fa-lg"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-1">
-                    2
-                  </td>
-                  <td>
-                    Unit
-                  </td>
-                  <td>
-                    <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit fa-lg"></i></a>
-                    <a href="" class="btn btn-sm btn-danger"><i class="fa fa-trash fa-lg"></i></a>
-                  </td>
-                </tr>
 
-                <!-- Modal -->
-                <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <form action="" method="get" accept-charset="utf-8">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Hapus Satuan</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p align="center">Yakin ingin menghapus satuan?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger">Hapus</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        </div>
-                      </form>
+                @foreach ($satuan as $sat)
+                  <tr>
+                    <td class="py-1">
+                      {{ $count++ }}
+                    </td>
+                    <td>
+                      {{ $sat->nama }}
+                    </td>
+                    <td>
+                      <a href="{{ route('admin_satuan.edit', ['id' => $sat->id]) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalHapus{{ $sat->id }}" title="Hapus"><i class="fa fa-trash fa-lg"></i></button>
+                    </td>
+                  </tr>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalHapus{{ $sat->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <form action="{{ route('admin_satuan.destroy', ['id' => $sat->id]) }}" method="POST" accept-charset="utf-8">
+                          {{ method_field('DELETE') }}
+                          <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Hapus Satuan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p align="center">Yakin ingin menghapus satuan {{ $sat->nama }}?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                          </div>
+                        </form>
+                      </div>
                     </div>
                   </div>
-                </div>
+                @endforeach
+
               </tbody>
             </table>
           </div>

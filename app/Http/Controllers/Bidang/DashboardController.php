@@ -15,7 +15,7 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-       auth()->user()->hasRole('ROLE_KADIS');
+       
     }
 
     public function index()

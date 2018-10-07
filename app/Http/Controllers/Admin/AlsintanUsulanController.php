@@ -23,8 +23,11 @@ class AlsintanUsulanController extends Controller
 
     public function index()
     {
-        //
-        return view('admin.alsintanusulan.index');
+        $alsintan_usulan = AlsintanUsulan::orderBy('nama')->get();
+        return view('admin.alsintanusulan.index', [
+            'alsintan_usulan' => $alsintan_usulan,
+            'count' => 1
+        ]);
     }
 
     public function lookupMerkByJenis(Request $request)
@@ -59,7 +62,15 @@ class AlsintanUsulanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $alsintan = new AlsintanUsulan();
+        $alsintan->nama = $request->nama;
+        $alsintan->merk = $request->merk;
+        $alsintan->jumlah = $request->jumlah;
+        $alsintan->tahun = $request->tahun;
+        $alsintan->sumber = $request->sumber;
+        $alsintan->save();
+
+        return redirect('admin/admin_alsintanusulan')->with('status', 'Alsintan berhasil ditambahkan');
     }
 
     /**
@@ -81,7 +92,10 @@ class AlsintanUsulanController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.alsintanusulan.edit');
+        $alsintan = AlsintanUsulan::where('id', $id)->first();
+        return view('admin.alsintanusulan.edit', [
+            'alsintan' => $alsintan
+        ]);
     }
 
     /**
@@ -93,7 +107,15 @@ class AlsintanUsulanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $alsintan = AlsintanUsulan::find($id);
+        $alsintan->nama = $request->nama;
+        $alsintan->merk = $request->merk;
+        $alsintan->jumlah = $request->jumlah;
+        $alsintan->tahun = $request->tahun;
+        $alsintan->sumber = $request->sumber;
+        $alsintan->update();
+
+        return redirect('admin/admin_alsintanusulan')->with('status', 'Alsintan berhasil diubah');
     }
 
     /**
@@ -104,6 +126,8 @@ class AlsintanUsulanController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        AlsintanUsulan::where('id', $id)->delete();
+        
+        return redirect()->back()->with('status', 'Alsintan Berhasil dihapus');
+    }   
 }
