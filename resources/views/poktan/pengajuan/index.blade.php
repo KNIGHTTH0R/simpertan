@@ -8,7 +8,7 @@
           <div class="card-body">
             <h4 class="card-title">Formulir Pengajuan Alsintan</h4>
 
-            <form class="" action="{{ route('poktan_pengajuan.store') }}" method="post">
+            <form class="form-control" action="{{ route('poktan_pengajuan.store') }}" method="post">
               {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-12">

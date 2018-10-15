@@ -48,25 +48,26 @@ class PengajuanController extends Controller
     {
       $user = auth()->user();
 
-      $this->validate($request, [
-        'jenis_alsintan' => 'required',
-        'merk_alsintan' => 'required',
-        'jumlah' => 'required',
-        'satuan' => 'required',
-      ]);
+      // $this->validate($request, [
+      //   'jenis_alsintan' => 'required',
+      //   'merk_alsintan' => 'required',
+      //   'jumlah' => 'required',
+      //   'satuan' => 'required',
+      // ]);
 
       $usulan = new Usulan();
       $usulan->poktan_id = $user->poktan_id;
-      $usulan->alsintan_usulan_id = AlsintanUsulan::select('id')
+      $alsintan_usulan_id = AlsintanUsulan::select('id')
                                   ->where('nama', '=', $request->input('jenis_alsintan'))
                                   ->where('merk', '=', $request->input('merk_alsintan'))
                                   ->first();
+      $usulan->alsintan_usulan_id = $alsintan_usulan_id->id;
       $usulan->jumlah = $request->input('jumlah');
       $usulan->catatan= '';
-      $usulan->is_approved = '';
+      $usulan->is_approved = '0';
       $usulan->save();
 
-      print_r($usulan);
+      return redirect('poktan/poktan_dashboard')->with('status', 'Pengajuan berhasil ditambahkan');
 
     }
 
