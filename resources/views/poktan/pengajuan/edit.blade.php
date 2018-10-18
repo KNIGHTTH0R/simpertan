@@ -65,7 +65,7 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <button type="submit" class="btn btn-success mr-2">Perbarui</button>
+                  <button type="submit" class="btn btn-success mr-2">Simpan</button>
                   <a href="{{ route('poktan_dashboard.index') }}" class="btn btn-secondary mr-2">Batal</a>
                 </div>
               </div>

@@ -20,7 +20,7 @@
               <h4 class="card-title">Daftar Barang Alsintan Untuk Peminjaman</h4>
             </div>
             <div class="col-md-6">
-              <a href="{{ route('admin_alsintanpinjam.create') }}" type="button" class="btn btn-primary btn-rounded btn-fw pull-right"><i class="fa fa-plus"></i>Tambah Alsintan</a>
+              <a href="{{ route('admin_alsintanpinjam.create') }}" class="btn btn-primary btn-rounded btn-fw pull-right"><i class="fa fa-plus"></i>Tambah Alsintan</a>
             </div>
           </div>
           <div class="table-responsive">
